@@ -1,0 +1,46 @@
+<ion-view view-title="About App">
+
+    <!--<ion-nav-buttons side="left">
+    </ion-nav-buttons>-->
+
+    <ion-content class="has-header about-view" padding="true">
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img src="img/about-icon.png" ng-click="vm.logo_click()">
+                <h2>{{vm.applicationName}}</h2>
+                <p>Version: {{vm.versionString}}</p>
+                <p>Commit: {{vm.commitShortSha}}</p>
+                <p>Built: {{vm.timestamp}}</p>
+
+            </div>
+            <div class="item item-body">
+                <p>Cordova: {{vm.device.cordova}}</p>
+                <p>Device Model: {{vm.device.model}}</p>
+                <p>Device Platform: {{vm.device.platform}}</p>
+                <p>Device uuid: {{vm.device.uuid}}</p>
+                <p>Device Version: {{vm.device.version}}</p>
+                <p>Device S/N: {{vm.device.serial}}</p>
+            </div>
+            <div class="item item-body">
+                <p>Created by King David Consulting LLC.</p>
+                <p>Copyright 2015-2016. All rights reserved.</p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" ng-click="vm.copyrightInfo_click()">
+                    <i class="icon ion-information-circled"></i> Copyright Info
+                </a>
+                <a class="tab-item" ng-click="vm.website_click()">
+                    <i class="icon ion-home"></i> Website
+                </a>
+                <a class="tab-item" ng-click="vm.gitHubRepo_click()">
+                    <i class="icon ion-social-github"></i> Github Repo
+                </a>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

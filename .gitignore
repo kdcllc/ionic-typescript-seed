@@ -1,0 +1,46 @@
+##King David Consulting LLC Ionice Template
+
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+#Logs
+*.log
+
+## Visual Studio 2015 files excluded from the proejct checkins
+.vs/
+bin/
+bld/
+
+##Build Libraries
+www/lib/
+node_modules/
+platforms/
+plugins/
+tools/typings/tsd
+karma_html
+.io-config.json
+
+## Gulp Compiled file
+tmp
+app/**/*.js
+
+## Compiled JavaScript not to be inclued in the source control
+www/js/*
+!www/js/winstore-jscompat.js
+
+## Html templates 
+www/templates
+
+## Compiled Tests are not to be included in the source control
+tests/all.test.js
+
+notes.md
+
+## Configurations for app builds that contains private keys
+res/native/windows/CordovaApp.pfx
+res/native/windows/Package.StoreAssociation.xml
+build.json
+
+### OSX template
+.DS_Store
+.AppleDouble
+.LSOverride

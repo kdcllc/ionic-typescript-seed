@@ -1,0 +1,10 @@
+{
+  "name": "kind-david-consulting-ionic-template",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "build"
+  ],
+  "gulpDependantTasks": [
+    "build"
+  ]
+}

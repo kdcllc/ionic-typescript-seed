@@ -1,0 +1,66 @@
+{
+  "name": "kind-david-consulting-ionic-template",
+  "version": "1.0.0",
+  "description": "kind-david-consulting-ionic-template: An Ionic Hybrid template project",
+  "authors": [
+    "Karpov"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/kdcllc/kind-david-consulting-ionic-template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kdcllc/kind-david-consulting-ionic-template.git"
+  },
+  "scripts": {
+    "init": "npm install --python2.5",
+    "install": "bower install",
+    "postinstall": "tsd reinstall -so",
+    "uninstall": "rimraf node_modules && npm cache clean && npm install",
+    "start": "ionic serve --lab",
+    "pretest": "gulp tslint",
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "bower": "^1.7.1",
+    "del": "^2.2.0",
+    "fs": "0.0.2",
+    "gulp": "^3.9.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-shell": "^0.5.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-task-listing": "^1.0.1",
+    "gulp-template": "^3.1.0",
+    "gulp-tslint": "^4.3.1",
+    "gulp-typescript": "^2.10.0",
+    "run-sequence": "^1.1.5",
+    "shelljs": "^0.5.3",
+    "ts-node": "^0.5.5",
+    "tsd": "^0.6.5",
+    "typescript": "^1.7.5",
+    "yargs": "^3.32.0"
+  },
+  "devDependencies": {},
+  "cordovaPlatforms": [
+    "android@latest",
+    "windows@latest",
+    "browser@latest",
+    "wp8@latest"
+  ],
+  "cordovaPlugins": [
+    "cordova-plugin-crosswalk-webview@1.2.0",
+    "cordova-plugin-whitelist@1.0.0",
+    "com.ionic.keyboard@~1.0.4",
+    "cordova-plugin-crosswalk-webview@~1.4.0",
+    "cordova-plugin-whitelist@~1.0.0",
+    "cordova-plugin-statusbar@~2.0.0",
+    "cordova-plugin-inappbrowser@~1.1.1",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-device",
+    "cordova-plugin-device@~1.1.0",
+    "cordova-plugin-splashscreen@2.1.0",
+    "cordova-plugin-splashscreen@~2.1.0"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "sourceMap": true,
+        "removeComments": true,
+        "declaration": true,
+        "noEmitOnError": true,
+        "noEmit": false,
+        "noResolve": false
+    },
+    "files": [
+        "tools/typings/tsd/tsd.d.ts"
+    ]
+   
+}
