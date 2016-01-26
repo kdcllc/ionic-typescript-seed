@@ -1,6 +1,8 @@
 import {readFileSync} from 'fs';
+import {resolve} from 'path';
 import {argv} from 'yargs';
 import {normalize, join} from 'path';
+import {HybridApplication} from './utils/application';
 
 // --------------
 // Configuration.
@@ -17,7 +19,7 @@ export const APP_TITLE = appTitle();
 
 export const ENV = getEnvironment();
 export const APP_SRC = 'src/app';
-export const ASSETS_SRC = `${APP_SRC}/assets`;
+export const ASSETS_SRC = `src/assets`;
 
 export const APP_WWW = 'www';
 
@@ -32,8 +34,6 @@ export const APP_LIB = `${APP_WWW}/lib`;
 
 export const TOOLS_DIR = 'tools';
 
-export const WIN_SHIM = 'winstore-jscompat.js';
-
 interface InjectableDependency {
     src: string;
     inject: string | boolean;
@@ -41,21 +41,27 @@ interface InjectableDependency {
 }
 
 
-// Declare NPM dependencies (Note that globs should not be injected).
-export const DEV_BOWER_DEPENDENCIES: InjectableDependency[] = ([
-    { src: PROJECT_ROOT + APP_LIB + '/winstore-jscompat/winstore-jscompat.js', inject: 'shims', dest: JS_DEST },
-    { src: PROJECT_ROOT + APP_LIB + '/ionic/js/ionic.bundle.js', inject: 'libs', dest: JS_DEST },
-    { src: PROJECT_ROOT + APP_LIB + '/angular-cache/dist/angular-cache.min.js', inject: 'libs', dest: JS_DEST },
-    { src: PROJECT_ROOT + APP_LIB + '/ngCordova/dist/ng-cordova.js', inject: 'libs', dest: JS_DEST },
-    { src: PROJECT_ROOT + APP_LIB + '/lodash/lodash.js', inject: 'libs', dest: JS_DEST },
-    { src: PROJECT_ROOT + APP_LIB + '/stacktrace-js/dist/stacktrace.js', inject: 'libs', dest: JS_DEST }
+
+// Declare Bower dependencies (Note that globs should not be injected).
+export const DEV_BOWER_DEPENDENCIES: InjectableDependency[] = normalizeBowerDependencies([
+    { src: 'winstore-jscompat/winstore-jscompat.js', inject: 'shims', dest: JS_DEST },
+    { src: 'ionic/js/ionic.bundle.js', inject: 'libs', dest: JS_DEST },
+    { src: 'angular-cache/dist/angular-cache.min.js', inject: 'libs', dest: JS_DEST },
+    { src: 'ngCordova/dist/ng-cordova.js', inject: 'libs', dest: JS_DEST },
+    { src: 'lodash/lodash.js', inject: 'libs', dest: JS_DEST },
+    { src: 'stacktrace-js/dist/stacktrace.js', inject: 'libs', dest: JS_DEST }
+]);
+export const DEV_NPM_DEPENDENCIES: InjectableDependency[] = normalizeNpmDependencies([
+    { src: 'arrify/index.js', inject: 'shims', dest: JS_DEST },
+    { src: 'beeper/index.js', inject: 'libs', dest: JS_DEST }
 ]);
 
 export const DEV_DEPENDENCIES = DEV_BOWER_DEPENDENCIES;
 
-export function appTitle(): string {
-    var pkg = JSON.parse(readFileSync('package.json').toString());
-    return pkg.version;
+export function appTitle(): number | string {
+   
+   return new HybridApplication().getAppInfo().name;
+   //return appInfo().name;
 }
 
 export function appVersion(): number | string {
@@ -67,8 +73,22 @@ export function appVersion(): number | string {
 
 // --------------
 // Private.
+interface Application {
+    name: string;
+}
 
-function normalizeDependencies(deps: InjectableDependency[]) {
+function appInfo() : Application {
+    return {name: 'Test App'};
+}
+
+function normalizeBowerDependencies(deps: InjectableDependency[]) {
+    deps
+        .filter(d => !/\*/.test(d.src)) // Skip globs
+        .forEach(d => d.src = resolve('bower_components/' + d.src ));
+    return deps;
+}
+
+function normalizeNpmDependencies(deps: InjectableDependency[]) {
     deps
         .filter(d => !/\*/.test(d.src)) // Skip globs
         .forEach(d => d.src = require.resolve(d.src));

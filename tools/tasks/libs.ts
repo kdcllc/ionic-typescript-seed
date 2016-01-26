@@ -1,5 +1,8 @@
 import {exec} from 'child_process';
-
+/*
+    installs only dependecies from the bower packages into folder
+    specified in bower.json file
+*/
 export = function libs(gulp, plugins, option) {
 
     return function(done) {

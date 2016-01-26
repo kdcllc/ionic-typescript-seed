@@ -23,6 +23,7 @@
   "dependencies": {
     "async": "^1.5.2",
     "bower": "^1.7.1",
+    "bower-installer": "^1.2.0",
     "del": "^2.2.0",
     "fs": "0.0.2",
     "gulp": "^3.9.0",
@@ -36,15 +37,17 @@
     "gulp-tslint": "^3.3.0",
     "gulp-tslint-stylish": "^1.0.4",
     "gulp-typescript": "^2.10.0",
+    "resolve": "^1.1.7",
     "run-sequence": "^1.1.5",
     "shelljs": "^0.5.3",
     "slash": "^1.0.0",
     "ts-node": "^0.5.5",
     "tsd": "^0.6.5",
     "typescript": "^1.7.5",
+    "xmldom": "^0.1.21",
+    "xpath": "0.0.21",
     "yargs": "^3.32.0"
   },
-  "devDependencies": {},
   "cordovaPlatforms": [
     "android@latest",
     "windows@latest",

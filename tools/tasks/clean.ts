@@ -4,7 +4,7 @@ import * as util from 'gulp-util';
 import * as chalk from 'chalk';
 import * as del from 'del';
 
-import {APP_JS, WIN_SHIM, APP_DEST_SRC} from '../config';
+import {APP_JS, APP_DEST_SRC} from '../config';
 
 export = function clean(gulp, plugins, option) {
     return function(done) {
@@ -108,7 +108,6 @@ function cleanWWW(done) {
         join(APP_JS, '*.js')
         , join(APP_JS, '**', '*.js')
         , join(APP_JS, '*.map')
-        , "!" + join(APP_JS, WIN_SHIM)
     ];
 
     del(files).then((paths) => {

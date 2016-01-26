@@ -157,6 +157,12 @@
     },
     "vinyl-source-stream/vinyl-source-stream.d.ts": {
       "commit": "ffceea9dd124d277c4597c7bd12930666ec074c5"
+    },
+    "xpath/xpath.d.ts": {
+      "commit": "f29bf726a60674dbf24bab06a26403a3871c3f21"
+    },
+    "xmldom/xmldom.d.ts": {
+      "commit": "f29bf726a60674dbf24bab06a26403a3871c3f21"
     }
   }
 }

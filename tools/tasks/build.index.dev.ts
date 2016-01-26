@@ -1,10 +1,10 @@
 import {join} from 'path';
-import {APP_SRC, APP_DEST, DEV_DEPENDENCIES} from '../config';
+import {ASSETS_SRC, APP_DEST, DEV_DEPENDENCIES} from '../config';
 import {transformPath, templateLocals} from '../utils';
 
 export = function buildIndexDev(gulp, plugins) {
   return function () {
-    return gulp.src(join(APP_SRC, 'index.html'))
+    return gulp.src(join(ASSETS_SRC, 'index.html'))
       // NOTE: There might be a way to pipe in loop.
       .pipe(inject('shims'))
       .pipe(inject('libs'))
@@ -29,8 +29,8 @@ export = function buildIndexDev(gulp, plugins) {
 
   function mapPath(dep) {
     let envPath = dep.src;
-    if (envPath.startsWith(APP_SRC)) {
-      envPath = join(APP_DEST, dep.src.replace(APP_SRC, ''));
+    if (envPath.startsWith(ASSETS_SRC)) {
+      envPath = join(APP_DEST, dep.src.replace(ASSETS_SRC, ''));
     }
     return envPath;
   }
