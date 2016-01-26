@@ -24,15 +24,20 @@ In addition make sure that you have Python 2.5 installed on your machine.
 
 ## Project install
 1. npm install - node-module dependencies to be loaded (npm, bower and tsd)
-2. gulp platforms / gulp plugins (installs all of the cordova platforms and plugins)
+2. gulp cordova.platforms / cordova.plugins (installs all of the cordova platforms and plugins)
 3. gulp build (run typescript code to generate the code base for app.js)
 
-##Features:
-- Gets posts through WP-API
-- Pull to refresh
-- Infinite scroll
-- App intro
+##WWW -deployment folder for the IONIC framework applications
 
+[Bower-installer](https://www.npmjs.com/package/bower-installer)
+```
++-- src
+|   +-- app
+|   +-- assets
+|   +-- index.html
++-- www
+|   +-- libs
+``` 
 ## Special Thanks To
 * [wpIonic](https://github.com/scottopolis/wpIonic/) project. 
 * [Angular2 Seed](https://github.com/mgechev/angular2-seed) project

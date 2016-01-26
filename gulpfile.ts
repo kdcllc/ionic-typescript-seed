@@ -13,24 +13,36 @@ gulp.task('default',    task('defaultTask'));
 //clean
 gulp.task('clean',       task('clean', 'all'));
 gulp.task('clean.dist',  task('clean', 'dist'));
+//clean bower dependecies
+gulp.task('clean.bower',  task('clean', 'bower'));
+gulp.task('clean.libs',  task('clean', 'libs'));
+//clean the deployment folder
+gulp.task('clean.www',  task('clean', 'www'));
 
 // platforms.
-gulp.task('cordova:platforms', done =>
+gulp.task('cordova.platforms', done =>
          runSequence('remove.platforms'
                      , 'add.platforms'
                      , done));
 
-gulp.task('cordova:plugins', done =>
+gulp.task('cordova.plugins', done =>
          runSequence(  'add.plugins'
                         , done));
                         
 // Build dev.
 gulp.task('build.dev', done =>
-  runSequence('clean.dist',
+  runSequence('clean',
               'tslint',
             //   'build.assets.dev',
               'build.js.dev',
             //   'build.index.dev',
               done));
-              
+ 
+ gulp.task('libs', done =>
+  runSequence('clean.libs',
+              'libs'
+              , done));
+ 
  gulp.task('tsd',       task('tsd'));             
+ 
+ // gulp.task('index',       task('build.index.dev'));        

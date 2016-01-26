@@ -1,0 +1,13 @@
+{
+  "name": "winstore-jscompat",
+  "homepage": "https://github.com/MSOpenTech/winstore-jscompat",
+  "_release": "399fd9f0b1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "399fd9f0b1d7826e0cbc38e8b4618832f12c4b8e"
+  },
+  "_source": "git://github.com/MSOpenTech/winstore-jscompat.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/MSOpenTech/winstore-jscompat.git"
+}

@@ -10,7 +10,13 @@
 bin/
 bld/
 
+## Bower Source Files
+## Bower files are pulled down to the following location
+src/assets/lib
+!src/assets/lib/custom
+
 ##Build Libraries
+
 www/lib/
 node_modules/
 platforms/
@@ -26,7 +32,6 @@ dist/
 
 ## Compiled JavaScript not to be inclued in the source control
 www/js/*
-!www/js/winstore-jscompat.js
 
 ## Html templates 
 www/templates

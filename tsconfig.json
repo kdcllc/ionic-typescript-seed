@@ -14,7 +14,8 @@
         "node_modules",
         "platforms",
         "plugins",
-        "www"
+        "www",
+        "bower_components"
     ],
     "compileOnSave": false
    

@@ -2,19 +2,15 @@
 {
    "search.exclude": {
         ".git": true,
-        "node_modules": true,
-        "bower_components": true,
-        "platforms": true,
-        "plugins": true,
         "bin" : true,
-        "bld": true
+        "bld": true,
+        "node_modules": true,
+        "platforms": true,
+        "plugins": true
       
     },
     "files.exclude": {
         "**/.git": true,
-        "**/plugins": true,
-        "**/platforms": true,
-        "**/node_modules": true,
         "**/.DS_Store": true,
         "**/*.js": {"when": "$(basename).ts"}
     }
