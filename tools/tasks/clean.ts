@@ -14,7 +14,12 @@ export = function clean(gulp, plugins, option) {
             case 'dist': cleanDist(done); break;
             case 'www': cleanWWW(done); break;
             case 'bower': cleanBower(done); break; 
+            
+            case 'tsd': cleanTsd(done); break;
             case 'libs': cleanLibs(done); break; 
+            
+            case 'platforms' : cleanPlatforms; break;
+            case 'plugins' : cleanPlugins; break;
             default: done();
         }
 
@@ -26,10 +31,44 @@ function cleanAll(done) {
         cleanDist,
         cleanWWW,
         cleanBower,
-        cleanLibs
-        
+        cleanLibs,
+        cleanPlatforms
     ], done);
 }
+
+function cleanTsd(done) {
+    del('tools/typings/tsd').then((paths) => {
+
+        paths.forEach(path => {
+            util.log('Deleted: ', chalk.yellow(path));
+        });
+
+        done();
+    });
+}
+
+function cleanPlugins(done) {
+    del('plugins').then((paths) => {
+
+        paths.forEach(path => {
+            util.log('Deleted: ', chalk.yellow(path));
+        });
+
+        done();
+    });
+}
+
+function cleanPlatforms(done) {
+    del('platforms').then((paths) => {
+
+        paths.forEach(path => {
+            util.log('Deleted: ', chalk.yellow(path));
+        });
+
+        done();
+    });
+}
+
 function cleanLibs(done) {
     del('src/assets/libs').then((paths) => {
 

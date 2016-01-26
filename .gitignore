@@ -10,43 +10,46 @@
 bin/
 bld/
 
-## Bower Source Files
-## Bower files are pulled down to the following location
+## Bower Sources
+bower_components
 src/assets/lib
 !src/assets/lib/custom
 
-##Build Libraries
-
-www/lib/
+## NPM Sources
 node_modules/
+
+## TSD Sources
+tools/typings/tsd
+
+## Cordova Sources
 platforms/
 plugins/
-tools/typings/tsd
-karma_html
-.io-config.json
-
-## Gulp Compiled file
-tmp
-app/**/*.js
-dist/
-
-## Compiled JavaScript not to be inclued in the source control
-www/js/*
-
-## Html templates 
-www/templates
-
-## Compiled Tests are not to be included in the source control
-tests/all.test.js
-
-notes.md
-
 ## Configurations for app builds that contains private keys
 res/native/windows/CordovaApp.pfx
 res/native/windows/Package.StoreAssociation.xml
 build.json
 
+## Build System
+tmp
+app/**/*.js
+dist/
+www/lib/
+www/js/*
+www/templates
+
+
+
+## Compiled Tests are not to be included in the source control
+tests/all.test.js
+karma_html
+
+
+notes.md
+
+
+
 ### OSX template
 .DS_Store
 .AppleDouble
 .LSOverride
+.io-config.json
