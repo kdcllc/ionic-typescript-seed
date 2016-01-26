@@ -2,7 +2,7 @@ import {readFileSync} from 'fs';
 import {resolve} from 'path';
 import {argv} from 'yargs';
 import {normalize, join} from 'path';
-import {HybridApplication} from './utils/application';
+import {IApp, HybridApplication} from './utils/application';
 
 // --------------
 // Configuration.
@@ -15,7 +15,7 @@ const ENVIRONMENTS = {
 export const PROJECT_ROOT = normalize(join(__dirname, '..'));
 
 export const APP_BASE = argv['base'] || '/';
-export const APP_TITLE = appTitle();
+export const APP: IApp = appApp();
 
 export const ENV = getEnvironment();
 export const APP_SRC = 'src/app';
@@ -58,9 +58,8 @@ export const DEV_NPM_DEPENDENCIES: InjectableDependency[] = normalizeNpmDependen
 
 export const DEV_DEPENDENCIES = DEV_BOWER_DEPENDENCIES;
 
-export function appTitle(): number | string {
-   
-   return new HybridApplication().getAppInfo().name;
+export function appApp(): IApp {
+   return new HybridApplication().getAppInfo();
    //return appInfo().name;
 }
 
@@ -69,17 +68,8 @@ export function appVersion(): number | string {
     return pkg.version;
 }
 
-
-
 // --------------
 // Private.
-interface Application {
-    name: string;
-}
-
-function appInfo() : Application {
-    return {name: 'Test App'};
-}
 
 function normalizeBowerDependencies(deps: InjectableDependency[]) {
     deps

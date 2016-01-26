@@ -5,7 +5,7 @@
 */
 import * as gulp from 'gulp';
 import {runSequence, task} from './tools/utils';
-import {APP_TITLE, DEV_DEPENDENCIES} from './tools/config';
+import {APP, DEV_DEPENDENCIES} from './tools/config';
 
 //default tasks displays all of the gulp tasks avaiable
 gulp.task('default', task('defaultTask'));
@@ -23,7 +23,7 @@ gulp.task('clean.tsd', task('clean', 'tsd'));
 gulp.task('clean.www', task('clean', 'www'));
 
 gulp.task('t', function(){
-   console.log(APP_TITLE); 
+   console.log(APP); 
 });
 // platforms.
 gulp.task('cordova.platforms', done =>
