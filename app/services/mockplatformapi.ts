@@ -1,8 +1,10 @@
+/// <reference path="../app.d.ts" />
+
 /**
  * 
  * https://github.com/kdcllc/Ionic-TypeScript-Starter 
  */
-namespace kdc.services {
+module kdc.services {
     'use strict';
     export interface IMockPlatformApis {
         getToastPlugin(): ICordovaToastPlugin;

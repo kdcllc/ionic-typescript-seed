@@ -1,4 +1,4 @@
-namespace kdc.filters {
+module kdc.filters {
     angular.module(kdc.constants.filters, [])
         .filter('ext_link', function($sce) {
             return function(text) {

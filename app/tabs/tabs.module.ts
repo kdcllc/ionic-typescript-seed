@@ -1,4 +1,4 @@
-namespace kdc.tabs {
+module kdc.tabs {
     
      'use strict';
 

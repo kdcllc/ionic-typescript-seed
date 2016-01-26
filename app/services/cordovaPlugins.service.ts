@@ -1,4 +1,6 @@
-namespace kdc.services {
+/// <reference path="../app.d.ts" />
+
+module kdc.services {
     'use strict';
 
     export interface ICordovaPlugins {

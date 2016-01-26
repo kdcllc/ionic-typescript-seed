@@ -1,4 +1,4 @@
-namespace kdc.posts {
+module kdc.posts {
 
     'use strict';
 

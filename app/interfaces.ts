@@ -1,3 +1,5 @@
+/// <reference path="../app/app.d.ts" />
+
 interface CordovaPlugins {
   Device: Device;
 }

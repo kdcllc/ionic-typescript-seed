@@ -1,4 +1,4 @@
-namespace kdc.settings {
+module kdc.settings {
      'use strict';
 
     angular

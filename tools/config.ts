@@ -12,10 +12,15 @@ const ENVIRONMENTS = {
 
 export const ENV                  = getEnvironment();
 export const APP_SRC              = 'app';
+export const APP_WWW              = 'www';
 
-//export const APP_DEST             = `dist/${ENV}`;
-export const APP_DEST             = `www/js`;
+export const APP_DEST             = `dist/${ENV}`;
+export const APP_JS             = `${APP_WWW}/js`;
+
 export const TOOLS_DIR            = 'tools';
+
+export const WIN_SHIM              = 'winstore-jscompat.js';
+
 
 export function appVersion(): number|string {
   var pkg = JSON.parse(readFileSync('package.json').toString());

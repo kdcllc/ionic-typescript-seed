@@ -1,4 +1,4 @@
-namespace kdc.posts {
+module kdc.posts {
     export interface IPostParams extends ng.ui.IStateParamsService {
         postId: string;
     }

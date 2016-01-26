@@ -6,8 +6,8 @@ export = function buildJSDev(gulp, plugins) {
   let tsProject = tsProjectFn(plugins);
   return function () {
     let src = [
-                join(APP_SRC, '**/*.ts'),
-                '!' + join(APP_SRC, '**/*_spec.ts')
+                join(APP_SRC, '**', '*.ts'),
+                '!' + join(APP_SRC, '**', '*_spec.ts')
               ];
 
     let result = gulp.src(src)

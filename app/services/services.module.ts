@@ -1,4 +1,4 @@
-namespace kdc.services {
+module kdc.services {
     'use strict';
     
      angular

@@ -1,4 +1,4 @@
-namespace kdc.layout {
+module kdc.layout {
     
     
     //sets the parent $rootScope to the WP json url all of the other controllers use this value

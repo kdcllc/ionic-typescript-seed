@@ -1,4 +1,4 @@
-﻿namespace kdc.services.log {
+﻿module kdc.services.log {
     'use strict';
 
     angular

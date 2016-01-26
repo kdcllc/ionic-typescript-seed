@@ -1,4 +1,4 @@
-namespace kdc.posts {
+module kdc.posts {
 
     export interface IPostsScope  {
         title: string;

@@ -1,4 +1,4 @@
-namespace kdc.blocks {
+module kdc.blocks {
     'use strict';
 
     angular

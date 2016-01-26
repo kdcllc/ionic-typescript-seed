@@ -1,4 +1,4 @@
-namespace kdc.bookmarks {
+module kdc.bookmarks {
      'use strict';
    
 

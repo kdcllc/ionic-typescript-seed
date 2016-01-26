@@ -1,4 +1,4 @@
-namespace kdc.bookmarks {
+module kdc.bookmarks {
 
     export interface IBookmarksScope {
 

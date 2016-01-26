@@ -1,4 +1,3 @@
-/// <reference path="../app.d.ts" />
 
 module kdc.about {
     

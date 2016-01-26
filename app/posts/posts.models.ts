@@ -1,4 +1,4 @@
-namespace  kdc.models {
+module  kdc.models {
 
     export interface Excerpt {
         rendered: string;

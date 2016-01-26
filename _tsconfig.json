@@ -3,7 +3,8 @@
         "target": "es5",
         "sourceMap": true,
         "removeComments": true,
-        "declaration": true,
+        "declaration": false,
+       "noImplicitAny": false,
         "noEmitOnError": true,
         "noEmit": false,
         "noResolve": false

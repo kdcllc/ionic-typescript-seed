@@ -1,4 +1,4 @@
-namespace kdc.intro {
+module kdc.intro {
     
      'use strict';
   

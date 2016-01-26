@@ -22,6 +22,7 @@ karma_html
 ## Gulp Compiled file
 tmp
 app/**/*.js
+dist/
 
 ## Compiled JavaScript not to be inclued in the source control
 www/js/*
