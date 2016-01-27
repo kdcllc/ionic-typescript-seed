@@ -11,7 +11,7 @@
     "angular-cache": "~4.5.0"
   },
   "install": {
-    "path": "src/assets/libs",
+    "path": "www/libs",
     "sources": {
          "ionic": "bower_components/ionic/**",
         "winstore-jscompat": "bower_components/winstore-jscompat/winstore-jscompat.js",

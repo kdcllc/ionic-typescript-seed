@@ -4,22 +4,30 @@ import * as util from 'gulp-util';
 import * as chalk from 'chalk';
 import * as del from 'del';
 
-import {APP_JS, APP_DEST_SRC} from '../config';
+import {
+        TSD,
+        PLUGINGS,
+        PLATFORMS,
+        APP_WWW_LIBS,
+        BOWER_COMPONENTS,
+        NODE_MODULES,
+        APP_SRC,
+        APP_WWW_JS
+        } from '../config';
 
 export = function clean(gulp, plugins, option) {
     return function(done) {
 
         switch (option) {
             case 'all': cleanAll(done); break;
-            case 'dist': cleanDist(done); break;
+            case 'src': cleanSrc(done); break;
             case 'www': cleanWWW(done); break;
-            case 'bower': cleanBower(done); break; 
-            
+            case 'bower': cleanBower(done); break;
+            case 'npm': cleanNPM(done); break;
             case 'tsd': cleanTsd(done); break;
-            case 'libs': cleanLibs(done); break; 
-            
-            case 'platforms' : cleanPlatforms; break;
-            case 'plugins' : cleanPlugins; break;
+            case 'libs': cleanLibs(done); break;
+            case 'platforms': cleanPlatforms; break;
+            case 'plugins': cleanPlugins; break;
             default: done();
         }
 
@@ -28,16 +36,19 @@ export = function clean(gulp, plugins, option) {
 
 function cleanAll(done) {
     async.parallel([
-        cleanDist,
+        cleanSrc,
         cleanWWW,
         cleanBower,
+        cleanNPM,
+        cleanTsd,
         cleanLibs,
-        cleanPlatforms
+        cleanPlatforms,
+        cleanPlugins
     ], done);
 }
 
 function cleanTsd(done) {
-    del('tools/typings/tsd').then((paths) => {
+    del(TSD).then((paths) => {
 
         paths.forEach(path => {
             util.log('Deleted: ', chalk.yellow(path));
@@ -48,7 +59,7 @@ function cleanTsd(done) {
 }
 
 function cleanPlugins(done) {
-    del('plugins').then((paths) => {
+    del(PLUGINGS).then((paths) => {
 
         paths.forEach(path => {
             util.log('Deleted: ', chalk.yellow(path));
@@ -59,7 +70,7 @@ function cleanPlugins(done) {
 }
 
 function cleanPlatforms(done) {
-    del('platforms').then((paths) => {
+    del(PLATFORMS).then((paths) => {
 
         paths.forEach(path => {
             util.log('Deleted: ', chalk.yellow(path));
@@ -70,7 +81,7 @@ function cleanPlatforms(done) {
 }
 
 function cleanLibs(done) {
-    del('src/assets/libs').then((paths) => {
+    del(APP_WWW_LIBS).then((paths) => {
 
         paths.forEach(path => {
             util.log('Deleted: ', chalk.yellow(path));
@@ -80,8 +91,8 @@ function cleanLibs(done) {
     });
 }
 function cleanBower(done) {
-    
-    del('bower_components').then((paths) => {
+
+    del(BOWER_COMPONENTS).then((paths) => {
 
         paths.forEach(path => {
             util.log('Deleted: ', chalk.yellow(path));
@@ -91,9 +102,28 @@ function cleanBower(done) {
     });
 }
 
-function cleanDist(done) {
-    
-    del(APP_DEST_SRC).then((paths) => {
+function cleanNPM(done) {
+
+    del(NODE_MODULES).then((paths) => {
+
+        paths.forEach(path => {
+            util.log('Deleted: ', chalk.yellow(path));
+        });
+
+        done();
+    });
+}
+
+function cleanSrc(done) {
+
+    let files = [
+        join(APP_SRC, '*.js')
+        , join(APP_SRC, '**', '*.js')
+        , join(APP_SRC, '*.map')
+
+    ];
+
+    del(files).then((paths) => {
 
         paths.forEach(path => {
             util.log('Deleted: ', chalk.yellow(path));
@@ -105,9 +135,10 @@ function cleanDist(done) {
 
 function cleanWWW(done) {
     let files = [
-        join(APP_JS, '*.js')
-        , join(APP_JS, '**', '*.js')
-        , join(APP_JS, '*.map')
+        join(APP_WWW_JS, '*.js')
+        , join(APP_WWW_JS, '**', '*.js')
+        , join(APP_WWW_JS, '*.map')
+
     ];
 
     del(files).then((paths) => {

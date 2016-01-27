@@ -12,16 +12,33 @@ const ENVIRONMENTS = {
     PRODUCTION: 'prod'
 };
 
+// See: http://content-security-policy.com/
+export const CONNETC_SRC = ' https://www.kingdavidconsulting.com/ http://www.kingdavidconsulting.com/ ws://localhost:35279 ws://localhost:35729';
+
 export const PROJECT_ROOT = normalize(join(__dirname, '..'));
 
+// application related configutaion
 export const APP_BASE = argv['base'] || '/';
 export const APP: IApp = appApp();
-
 export const ENV = getEnvironment();
+
+// source files
 export const APP_SRC = 'src/app';
 export const ASSETS_SRC = `src/assets`;
 
+// distribution 
 export const APP_WWW = 'www';
+export const APP_WWW_JS = `${APP_WWW}/js`;
+export const APP_WWW_LIBS = `${APP_WWW}/libs`;
+
+
+// clean locations
+export const TSD = 'tools/typings/tsd';
+export const PLUGINGS = 'plugins';
+export const PLATFORMS = 'platforms';
+export const BOWER_COMPONENTS = 'bower_components';
+export const NODE_MODULES = 'node_modules';
+
 
 export const APP_DEST = `dist/${ENV}`;
 export const APP_DEST_SRC = `dist/${ENV}/src`;
