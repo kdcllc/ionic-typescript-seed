@@ -1,6 +1,6 @@
 import * as slash from 'slash';
 import {join} from 'path';
-import {APP_BASE, APP_DEST, ENV} from '../config';
+import {APP_WWW, APP_BASE, ENV, ENVIRONMENTS} from '../config';
 
 let injectables: string[] = [];
 
@@ -18,8 +18,14 @@ export function registerInjectableAssetsRef(paths: string[], target: string = ''
 
 export function transformPath(plugins, env) {
   return function (filepath) {
-    filepath = ENV === 'prod' ? filepath.replace(`/${APP_DEST}`, '') : filepath;
-    arguments[0] = join(APP_BASE, filepath);
+     let www = '/' + APP_WWW + '/';
+     
+     if (filepath.startsWith(www)) {
+      filepath = filepath.replace(www, '');
+      console.log('filepath = ', filepath);
+    }
+    
+     arguments[0] = join(filepath);
     return slash(plugins.inject.transform.apply(plugins.inject.transform, arguments));
   };
 }

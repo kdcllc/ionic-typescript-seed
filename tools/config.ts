@@ -47,10 +47,6 @@ export const PLATFORMS = 'platforms';
 export const BOWER_COMPONENTS = 'bower_components';
 export const NODE_MODULES = 'node_modules';
 
-
-export const APP_DEST = `dist/${ENV}`;
-export const APP_DEST_SRC = `dist/${ENV}/src`;
-
 export const APP_JS = `${APP_WWW}/js`;
 export const JS_DEST = `${APP_WWW}/js`;
 
@@ -65,32 +61,25 @@ interface InjectableDependency {
     dest?: string;
 }
 
-
-
 // Declare Bower dependencies (Note that globs should not be injected).
 export const DEV_BOWER_DEPENDENCIES: InjectableDependency[] = normalizeBowerDependencies([
     { src: 'winstore-jscompat/winstore-jscompat.js', inject: 'shims', dest: JS_DEST },
     { src: 'ionic/js/ionic.bundle.js', inject: 'libs', dest: JS_DEST },
-    { src: 'angular-cache/dist/angular-cache.min.js', inject: 'libs', dest: JS_DEST },
-    { src: 'ngCordova/dist/ng-cordova.js', inject: 'libs', dest: JS_DEST },
+    { src: 'angular-cache/angular-cache.js', inject: 'libs', dest: JS_DEST },
+    { src: 'ngCordova/ng-cordova.js', inject: 'libs', dest: JS_DEST },
     { src: 'lodash/lodash.js', inject: 'libs', dest: JS_DEST },
-    { src: 'stacktrace-js/dist/stacktrace.js', inject: 'libs', dest: JS_DEST }
+    { src: 'stacktrace-js/stacktrace.js', inject: 'libs', dest: JS_DEST }
 ]);
 export const DEV_NPM_DEPENDENCIES: InjectableDependency[] = normalizeNpmDependencies([
     { src: 'arrify/index.js', inject: 'shims', dest: JS_DEST },
     { src: 'beeper/index.js', inject: 'libs', dest: JS_DEST }
 ]);
 
-export const DEV_DEPENDENCIES = DEV_BOWER_DEPENDENCIES;
+export const DEPENDENCIES = DEV_BOWER_DEPENDENCIES;
 
 export function appApp(): IApp {
    return new HybridApplication().getAppInfo();
    //return appInfo().name;
-}
-
-export function appVersion(): number | string {
-    var pkg = JSON.parse(readFileSync('package.json').toString());
-    return pkg.version;
 }
 
 // --------------
@@ -99,7 +88,7 @@ export function appVersion(): number | string {
 function normalizeBowerDependencies(deps: InjectableDependency[]) {
     deps
         .filter(d => !/\*/.test(d.src)) // Skip globs
-        .forEach(d => d.src = resolve('bower_components/' + d.src ));
+        .forEach(d => d.src = resolve('www/libs/' + d.src ));
     return deps;
 }
 

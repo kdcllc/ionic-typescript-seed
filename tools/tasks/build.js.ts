@@ -1,8 +1,9 @@
 import {join} from 'path';
-import {APP_SRC, APP_DEST_SRC} from '../config';
+import {APP_SRC, 
+        APP_WWW_JS} from '../config';
 import {templateLocals, tsProjectFn} from '../utils';
 
-export = function buildJSDev(gulp, plugins) {
+export = function buildJS(gulp, plugins) {
   let tsProject = tsProjectFn(plugins);
   return function () {
     let src = [
@@ -18,6 +19,6 @@ export = function buildJSDev(gulp, plugins) {
     return result.js
       .pipe(plugins.sourcemaps.write())
       .pipe(plugins.template(templateLocals()))
-      .pipe(gulp.dest(APP_DEST_SRC));
+      .pipe(gulp.dest(APP_WWW_JS));
   };
 };

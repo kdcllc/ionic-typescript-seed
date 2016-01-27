@@ -8,7 +8,8 @@
         "noLib": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "outFile": "bundle.js"
     },
     "exclude": [
         "node_modules",

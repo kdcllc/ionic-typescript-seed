@@ -17,6 +17,20 @@ import {
        
         } from '../config';
 
+ let www_js = [
+        join(APP_WWW_JS, '*.js')
+        , join(APP_WWW_JS, '**', '*.js')
+        , join(APP_WWW_JS, '*.map')
+
+    ];
+
+ let src_js = [
+        join(APP_SRC, '*.js')
+        , join(APP_SRC, '**', '*.js')
+        , join(APP_SRC, '*.map')
+
+    ];
+
 export = function clean(gulp, plugins, option) {
     return function(done) {
 
@@ -24,8 +38,9 @@ export = function clean(gulp, plugins, option) {
             case 'all': cleanAll(done); break;
             case 'src': cleanSrc(done); break;
             //www folder
-            case 'libs': cleanLibs(done); break;
             case 'www': cleanWWW(done); break;
+            case 'js': cleanJs(done); break;
+            case 'libs': cleanLibs(done); break;
             case 'sass': cleanSASS(done); break;
             case 'templates': cleanTemplates(done); break;
             
@@ -45,8 +60,9 @@ function cleanAll(done) {
     async.parallel([
         cleanSrc,
         
-        cleanLibs, 
         cleanWWW,
+        cleanJs,
+        cleanLibs, 
         cleanSASS,
         cleanTemplates,
         
@@ -125,7 +141,6 @@ function cleanLibs(done) {
     });
 }
 function cleanBower(done) {
-
     del(BOWER_COMPONENTS).then((paths) => {
 
         paths.forEach(path => {
@@ -137,7 +152,6 @@ function cleanBower(done) {
 }
 
 function cleanNPM(done) {
-
     del(NODE_MODULES).then((paths) => {
 
         paths.forEach(path => {
@@ -149,15 +163,7 @@ function cleanNPM(done) {
 }
 
 function cleanSrc(done) {
-
-    let files = [
-        join(APP_SRC, '*.js')
-        , join(APP_SRC, '**', '*.js')
-        , join(APP_SRC, '*.map')
-
-    ];
-
-    del(files).then((paths) => {
+    del(src_js).then((paths) => {
 
         paths.forEach(path => {
             util.log('Deleted: ', chalk.yellow(path));
@@ -167,14 +173,31 @@ function cleanSrc(done) {
     });
 }
 
+
+function cleanJs(done) {
+    del(www_js).then((paths) => {
+
+        paths.forEach(path => {
+            util.log('Deleted: ', chalk.yellow(path));
+        });
+
+        done();
+    });
+}
+
+/*
+    Clean
+    
+    +--- www    
+            +---js
+            +---css
+            +---libs
+*/
 function cleanWWW(done) {
-    let files = [
-        join(APP_WWW_JS, '*.js')
-        , join(APP_WWW_JS, '**', '*.js')
-        , join(APP_WWW_JS, '*.map')
-
-    ];
-
+    let files = www_js.concat(
+        [APP_WWW_CSS, APP_WWW_LIBS]
+    );
+       
     del(files).then((paths) => {
 
         paths.forEach(path => {

@@ -9,45 +9,29 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; script-src * 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src *; connect-src 'self'  https://www.kingdavidconsulting.com/ http://www.kingdavidconsulting.com/ ws://localhost:35279 ws://localhost:35729">
 
     <title>king-david-consulting-ionic-template</title>
+    
+    <link href="css/bundle.css" rel="stylesheet">
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <!-- shims:js -->
+    <script src="libs/winstore-jscompat/winstore-jscompat.js"></script>
+    <!-- endinject -->
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above-->
-    <link href="css/ionic.app.css" rel="stylesheet">
-
-  <!-- shims:js -->
-  <script src="/bower_components/winstore-jscompat/winstore-jscompat.js"></script>
-  <!-- endinject -->
-
-  <!-- libs:js -->
-  <script src="/bower_components/ionic/js/ionic.bundle.js"></script>
-  <script src="/bower_components/angular-cache/dist/angular-cache.min.js"></script>
-  <script src="/bower_components/ngCordova/dist/ng-cordova.js"></script>
-  <script src="/bower_components/lodash/lodash.js"></script>
-  <script src="/bower_components/stacktrace-js/dist/stacktrace.js"></script>
-  <!-- endinject -->
-  
-    <!-- WinJs for windows 8.1 -->
-    <!--<script src="js/winstore-jscompat.js"></script>-->
-
-    <!-- ionic/angularjs js -->
-    <!--<script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/angular-cache/dist/angular-cache.min.js"></script>-->
+    <!-- libs:js -->
+    <script src="libs/ionic/js/ionic.bundle.js"></script>
+    <script src="libs/angular-cache/angular-cache.js"></script>
+    <script src="libs/ngCordova/ng-cordova.js"></script>
+    <script src="libs/lodash/lodash.js"></script>
+    <script src="libs/stacktrace-js/stacktrace.js"></script>
+    <!-- endinject -->
 
     <!-- cordova script -->
-    <!--<script src="lib/ngCordova/dist/ng-cordova.js"></script>-->
     <script src="cordova.js"></script>
     
-    <!-- 3rd party libraries-->
-    <!--<script src="lib/lodash/lodash.min.js"></script>
-    <script src="lib/stacktrace-js/dist/stacktrace.min.js"></script>-->
-
     <!-- Compiled Angular templates -->
     <script src="js/templates.js"></script>
         
     <!-- your app's js -->
-    <script src="js/app.js"></script>
+    <script src="js/bundle.js"></script>
 
 </head>
 

@@ -5,7 +5,7 @@
 */
 import * as gulp from 'gulp';
 import {runSequence, task} from './tools/utils';
-import {APP, ENV, DEV_DEPENDENCIES} from './tools/config';
+import {APP, ENV, DEPENDENCIES} from './tools/config';
 
 //default tasks displays all of the gulp tasks avaiable
 gulp.task('default', task('defaultTask'));
@@ -22,6 +22,7 @@ gulp.task('clean.platforms', task('clean', 'platforms'));
 gulp.task('clean.plugins', task('clean', 'plugins'));
 
 gulp.task('clean.www', task('clean', 'www'));
+gulp.task('clean.js', task('clean', 'js'));
 gulp.task('clean.libs', task('clean', 'libs'));
 gulp.task('clean.sass', task('clean', 'sass'));
 gulp.task('clean.templates', task('clean', 'templates'));
@@ -42,13 +43,13 @@ gulp.task('cordova.plugins', done =>
         , done));
                         
 // Build dev.
-gulp.task('build.dev', done =>
+gulp.task('build', done =>
     runSequence('clean.src',
-                'clean.www',
+                'clean.js',
                 'tslint',
-                 // 'build.assets.dev',
-                'build.js.dev',
-                //   'build.index.dev',
+                 'build.js',
+                 'templates',
+                 "build.index",
         done));
 
 gulp.task('libs', done =>
@@ -71,4 +72,9 @@ gulp.task('tsd', done =>
  gulp.task('templates', done =>
     runSequence('clean.templates',
                 'build.templates'
+                , done));
+
+ gulp.task('js', done =>
+    runSequence('clean.js',
+                'build.js'
                 , done));
