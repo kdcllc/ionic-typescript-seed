@@ -7,7 +7,7 @@ import {IApp, HybridApplication} from './utils/application';
 // --------------
 // Configuration.
 
-const ENVIRONMENTS = {
+export const ENVIRONMENTS = {
     DEVELOPMENT: 'dev',
     PRODUCTION: 'prod'
 };
@@ -25,12 +25,15 @@ export const ENV = getEnvironment();
 // source files
 export const APP_SRC = 'src/app';
 export const ASSETS_SRC = `src/assets`;
+export const ASSETS_STYLES = 'src/styles';
+export const SASS_INDEX = `${ASSETS_STYLES}/index.scss`;
+export const SASS = `${ASSETS_STYLES}/**/*.scss`;
 
 // distribution 
 export const APP_WWW = 'www';
 export const APP_WWW_JS = `${APP_WWW}/js`;
 export const APP_WWW_LIBS = `${APP_WWW}/libs`;
-
+export const APP_WWW_CSS = `${APP_WWW}/css`;
 
 // clean locations
 export const TSD = 'tools/typings/tsd';

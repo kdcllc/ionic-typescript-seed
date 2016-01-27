@@ -38,6 +38,10 @@ In addition make sure that you have Python 2.5 installed on your machine.
 +-- www
 |   +-- libs
 ``` 
+
+```
+gulp --env prod build.index
+```
 ## Special Thanks To
 * [wpIonic](https://github.com/scottopolis/wpIonic/) project. 
 * [Angular2 Seed](https://github.com/mgechev/angular2-seed) project

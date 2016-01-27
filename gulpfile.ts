@@ -5,7 +5,7 @@
 */
 import * as gulp from 'gulp';
 import {runSequence, task} from './tools/utils';
-import {APP, DEV_DEPENDENCIES} from './tools/config';
+import {APP, ENV, DEV_DEPENDENCIES} from './tools/config';
 
 //default tasks displays all of the gulp tasks avaiable
 gulp.task('default', task('defaultTask'));
@@ -13,16 +13,21 @@ gulp.task('default', task('defaultTask'));
 // clean
 gulp.task('clean', task('clean', 'all'));
 gulp.task('clean.src', task('clean', 'src'));
+
 gulp.task('clean.bower', task('clean', 'bower'));
 gulp.task('clean.npm', task('clean', 'npm'));
-gulp.task('clean.libs', task('clean', 'libs'));
 gulp.task('clean.tsd', task('clean', 'tsd'));
+
 gulp.task('clean.platforms', task('clean', 'platforms'));
 gulp.task('clean.plugins', task('clean', 'plugins'));
+
 gulp.task('clean.www', task('clean', 'www'));
+gulp.task('clean.libs', task('clean', 'libs'));
+gulp.task('clean.sass', task('clean', 'sass'));
 
 gulp.task('t', function(){
    console.log(APP); 
+   console.log(ENV);
 });
 
 // platforms.
@@ -55,4 +60,9 @@ gulp.task('tsd', done =>
                 'tsd'
                 , done));
               
- gulp.task('index',       task('build.index.dev'));        
+ gulp.task('index',       task('build.index'));   
+ 
+ gulp.task('sass', done =>
+    runSequence('clean.sass',
+                'build.styles'
+                , done));

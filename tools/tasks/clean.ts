@@ -12,7 +12,8 @@ import {
         BOWER_COMPONENTS,
         NODE_MODULES,
         APP_SRC,
-        APP_WWW_JS
+        APP_WWW_JS,
+        APP_WWW_CSS
         } from '../config';
 
 export = function clean(gulp, plugins, option) {
@@ -21,11 +22,15 @@ export = function clean(gulp, plugins, option) {
         switch (option) {
             case 'all': cleanAll(done); break;
             case 'src': cleanSrc(done); break;
+            //www folder
+            case 'libs': cleanLibs(done); break;
             case 'www': cleanWWW(done); break;
+            case 'sass': cleanSASS(done); break;
+              
             case 'bower': cleanBower(done); break;
             case 'npm': cleanNPM(done); break;
             case 'tsd': cleanTsd(done); break;
-            case 'libs': cleanLibs(done); break;
+
             case 'platforms': cleanPlatforms; break;
             case 'plugins': cleanPlugins; break;
             default: done();
@@ -37,14 +42,29 @@ export = function clean(gulp, plugins, option) {
 function cleanAll(done) {
     async.parallel([
         cleanSrc,
+        
+        cleanLibs, 
         cleanWWW,
+        cleanSASS,
+        
         cleanBower,
         cleanNPM,
         cleanTsd,
-        cleanLibs,
+       
         cleanPlatforms,
         cleanPlugins
     ], done);
+}
+
+function cleanSASS(done) {
+    del(APP_WWW_CSS).then((paths) => {
+
+        paths.forEach(path => {
+            util.log('Deleted: ', chalk.yellow(path));
+        });
+
+        done();
+    });
 }
 
 function cleanTsd(done) {
