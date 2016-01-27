@@ -13,11 +13,9 @@
     },
     "exclude": [
         "node_modules",
+        "bower_components",
         "platforms",
-        "plugins",
-        "www",
-        "bower_components"
+        "plugins"
     ],
     "compileOnSave": false
-   
 }

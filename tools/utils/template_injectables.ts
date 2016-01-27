@@ -1,6 +1,6 @@
 import * as slash from 'slash';
 import {join} from 'path';
-import {APP_WWW, APP_BASE, ENV, ENVIRONMENTS} from '../config';
+import {APP_WWW, ENV, ENVIRONMENTS} from '../config';
 
 let injectables: string[] = [];
 
