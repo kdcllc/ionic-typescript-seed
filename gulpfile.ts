@@ -76,5 +76,6 @@ gulp.task('tsd', done =>
 
  gulp.task('js', done =>
     runSequence('clean.js',
+                'build.templates',
                 'build.js'
                 , done));
