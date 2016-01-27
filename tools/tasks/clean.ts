@@ -14,6 +14,7 @@ import {
         APP_SRC,
         APP_WWW_JS,
         APP_WWW_CSS
+       
         } from '../config';
 
 export = function clean(gulp, plugins, option) {
@@ -26,7 +27,8 @@ export = function clean(gulp, plugins, option) {
             case 'libs': cleanLibs(done); break;
             case 'www': cleanWWW(done); break;
             case 'sass': cleanSASS(done); break;
-              
+            case 'templates': cleanTemplates(done); break;
+            
             case 'bower': cleanBower(done); break;
             case 'npm': cleanNPM(done); break;
             case 'tsd': cleanTsd(done); break;
@@ -46,6 +48,7 @@ function cleanAll(done) {
         cleanLibs, 
         cleanWWW,
         cleanSASS,
+        cleanTemplates,
         
         cleanBower,
         cleanNPM,
@@ -54,6 +57,17 @@ function cleanAll(done) {
         cleanPlatforms,
         cleanPlugins
     ], done);
+}
+
+function cleanTemplates(done) {
+    del(join(APP_WWW_JS, '/templates.js')).then((paths) => {
+ 
+        paths.forEach(path => {
+            util.log('Deleted: ', chalk.yellow(path));
+        });
+
+        done();
+    });
 }
 
 function cleanSASS(done) {

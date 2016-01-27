@@ -24,6 +24,7 @@ gulp.task('clean.plugins', task('clean', 'plugins'));
 gulp.task('clean.www', task('clean', 'www'));
 gulp.task('clean.libs', task('clean', 'libs'));
 gulp.task('clean.sass', task('clean', 'sass'));
+gulp.task('clean.templates', task('clean', 'templates'));
 
 gulp.task('t', function(){
    console.log(APP); 
@@ -65,4 +66,9 @@ gulp.task('tsd', done =>
  gulp.task('sass', done =>
     runSequence('clean.sass',
                 'build.styles'
+                , done));
+ 
+ gulp.task('templates', done =>
+    runSequence('clean.templates',
+                'build.templates'
                 , done));

@@ -1,7 +1,12 @@
 # King David Consulting LLC - Ionic Hybrid Application Template
 
-This project template was developed in prepration for [Angular2](https://angular.io/) 
+This project template was developed in preparation for [Angular2](https://angular.io/) 
 and [TypeScript](http://www.typescriptlang.org/) development for [NativeScript](https://www.nativescript.org/) Hybrid Applications.
+
+As Angular application grows in size and becomes harder to manage the source code base without toolset like TypeScript. 
+The entire template project runs on TypeScript code from gulpfile.ts build system to application code. 
+The goal was to use TypeScript sufficiently in the project builds by utilizing Gulpfile.ts instead of Gulpfile.js.
+
 
 WordPress is a popular Content Management System that now exposes its data thru WP-API JSON interfaces.
 This template utilizes [WP-API](https://github.com/WP-API/WP-API) plugin.
@@ -27,17 +32,23 @@ In addition make sure that you have Python 2.5 installed on your machine.
 2. gulp cordova.platforms / cordova.plugins (installs all of the cordova platforms and plugins)
 3. gulp build (run typescript code to generate the code base for app.js)
 
-##WWW -deployment folder for the IONIC framework applications
+##WWW deployment folder for the IONIC framework applications
 
 [Bower-installer](https://www.npmjs.com/package/bower-installer)
 ```
 +-- src
 |   +-- app
 |   +-- assets
-|   +-- index.html
+|       +-- index.html
+|   +-- styles
 +-- www
-|   +-- libs
+|   +-- css         - sass generated
+|   +-- libs        - bower_installer npm package populates the folder
+|   +-- js          - typescript compiler generated code
 ``` 
+
+### Build System of the project
+[Gulp]() is a powerful build system that uses stream thru code to prepare and execute the pipelines.
 
 ```
 gulp --env prod build.index

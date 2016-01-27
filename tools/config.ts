@@ -25,9 +25,14 @@ export const ENV = getEnvironment();
 // source files
 export const APP_SRC = 'src/app';
 export const ASSETS_SRC = `src/assets`;
+//SASS files
 export const ASSETS_STYLES = 'src/styles';
 export const SASS_INDEX = `${ASSETS_STYLES}/index.scss`;
 export const SASS = `${ASSETS_STYLES}/**/*.scss`;
+
+// templates
+export const TEMPLATES = `${APP_SRC}/**/*.html`;
+
 
 // distribution 
 export const APP_WWW = 'www';
