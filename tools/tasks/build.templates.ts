@@ -15,7 +15,7 @@ export = function buildTemplates(gulp, plugins) {
     return gulp.src(TEMPLATES)
          .pipe(plugins.angularTemplatecache({
             "filename": "templates.js",
-            "root": "",
+            "root": "templates",
             "module": "templates",
             standalone: true
         }))

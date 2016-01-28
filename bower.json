@@ -1,5 +1,5 @@
 {
-  "name": "kind-david-consulting-ionic-template",
+  "name": "ionic-typescript-seed",
   "private": true,
   "dependencies": {
     "ionic": "driftyco/ionic-bower#1.2.4",
@@ -11,7 +11,7 @@
     "angular-cache": "~4.5.0"
   },
   "install": {
-    "path": "www/libs",
+    "path": "www/lib",
     "sources": {
          "ionic": "bower_components/ionic/**",
         "winstore-jscompat": "bower_components/winstore-jscompat/winstore-jscompat.js",

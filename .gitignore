@@ -33,7 +33,7 @@ build.json
 tmp
 app/**/*.js
 dist/
-www/libs/
+www/lib/
 www/css/
 www/js/*
 www/templates

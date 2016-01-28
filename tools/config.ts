@@ -37,7 +37,7 @@ export const TEMPLATES = `${APP_SRC}/**/*.html`;
 // distribution 
 export const APP_WWW = 'www';
 export const APP_WWW_JS = `${APP_WWW}/js`;
-export const APP_WWW_LIBS = `${APP_WWW}/libs`;
+export const APP_WWW_LIBS = `${APP_WWW}/lib`;
 export const APP_WWW_CSS = `${APP_WWW}/css`;
 
 // clean locations
@@ -88,7 +88,7 @@ export function appApp(): IApp {
 function normalizeBowerDependencies(deps: InjectableDependency[]) {
     deps
         .filter(d => !/\*/.test(d.src)) // Skip globs
-        .forEach(d => d.src = resolve('www/libs/' + d.src ));
+        .forEach(d => d.src = resolve('www/lib/' + d.src ));
     return deps;
 }
 
