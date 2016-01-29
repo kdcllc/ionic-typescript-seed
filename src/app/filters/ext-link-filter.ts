@@ -1,4 +1,4 @@
-module kdc.filters {
+module kdc.filters.external {
 
     'use strict';
     ExternalLink.$inject = ['$log'];
@@ -9,6 +9,6 @@ module kdc.filters {
         };
     }
 
-    angular.module(kdc.constants.filters, []).filter('ext_link', kdc.filters.ExternalLink);
+    angular.module(kdc.constants.externalLinkFilter, []).filter('ext_link', ExternalLink);
 
 }

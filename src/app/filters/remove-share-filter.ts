@@ -8,7 +8,5 @@ module kdc.filters {
             return String(text).substr(0, String(text).indexOf('</p>'));
         };
     }
-
-    angular.module(kdc.constants.filters, []).filter('remove_share', kdc.filters.RemoveShare);
-
+    angular.module(kdc.constants.removeShareFilter, []).filter('remove_share', kdc.filters.RemoveShare);
 }

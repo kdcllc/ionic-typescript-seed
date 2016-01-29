@@ -17,6 +17,9 @@ module kdc.constants {
      export const tabs = app + '.tabs';
      export const filters = app + '.filters';
      
+     export const removeShareFilter = app + '.filters.removeShare';
+     export const externalLinkFilter = app + '.filters.externalLink';
+     
      export const baseUrl = 'https://www.kingdavidconsulting.com/'; //'http://demo.wp-api.org/'
          
 }
