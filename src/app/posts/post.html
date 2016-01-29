@@ -9,7 +9,7 @@
             <div class="item post-title">
                 <h2 ng-bind-html="vm.title"></h2>
             </div>
-            <div class="item item-body" ng-if="vm.content" ng-bind-html="vm.content | ext_link"></div>
+            <div class="item item-body" ng-if="vm.content" ng-bind-html="vm.content | ext_link | remove_share"></div>
 
 
             <div class="item tabs tabs-secondary tabs-icon-left">

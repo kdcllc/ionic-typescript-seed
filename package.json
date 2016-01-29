@@ -41,6 +41,7 @@
     "gulp-tslint": "^3.3.0",
     "gulp-tslint-stylish": "^1.0.4",
     "gulp-typescript": "^2.10.0",
+    "gulp-watch": "^4.3.5",
     "rename": "^1.0.3",
     "resolve": "^1.1.7",
     "run-sequence": "^1.1.5",

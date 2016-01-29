@@ -19,10 +19,9 @@ export function registerInjectableAssetsRef(paths: string[], target: string = ''
 export function transformPath(plugins, env) {
   return function (filepath) {
      let www = '/' + APP_WWW + '/';
-     
      if (filepath.startsWith(www)) {
       filepath = filepath.replace(www, '');
-      console.log('filepath = ', filepath);
+     // console.log('filepath = ', filepath);
     }
     
      arguments[0] = join(filepath);

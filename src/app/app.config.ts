@@ -29,8 +29,6 @@ module kdc {
             $ionicConfigProvider.scrolling.jsScrolling(false);
         }
         
-        
-        
         $logProvider.debugEnabled(true);
         
         $stateProvider

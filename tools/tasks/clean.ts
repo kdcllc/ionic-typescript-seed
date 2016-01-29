@@ -173,9 +173,15 @@ function cleanSrc(done) {
     });
 }
 
-
+/*
+   Cleans the TypeScript generated JavaScript not templates cache  
+*/
 function cleanJs(done) {
-    del(www_js).then((paths) => {
+    let files = www_js.concat(
+      join("!" +   APP_WWW_JS , "templates.js")
+    );
+  
+    del(files).then((paths) => {
 
         paths.forEach(path => {
             util.log('Deleted: ', chalk.yellow(path));
@@ -207,4 +213,12 @@ function cleanWWW(done) {
         done();
     });
 }
+
+function log(paths, done) {
+     paths.forEach(path => {
+            util.log('Deleted: ', chalk.yellow(path));
+        });
+
+        done();
+};
 

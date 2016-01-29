@@ -46,9 +46,11 @@ gulp.task('cordova.plugins', done =>
 gulp.task('build', done =>
     runSequence('clean.src',
                 'clean.js',
-                'tslint',
+                'clean.templates',
+                 'tslint',
                  'build.js',
-                 'templates',
+                 'build.templates',
+                 'build.styles',
                  "build.index",
         done));
 
@@ -62,20 +64,27 @@ gulp.task('tsd', done =>
                 'tsd'
                 , done));
               
- gulp.task('index',       task('build.index'));   
+ gulp.task('build.index',       task('build.index'));   
  
- gulp.task('sass', done =>
+ gulp.task('build.styles', done =>
     runSequence('clean.sass',
                 'build.styles'
                 , done));
  
- gulp.task('templates', done =>
+ gulp.task('build.templates', done =>
     runSequence('clean.templates',
                 'build.templates'
                 , done));
 
- gulp.task('js', done =>
+ gulp.task('build.js', done =>
     runSequence('clean.js',
-                'build.templates',
+                'tslint',
                 'build.js'
                 , done));
+
+// --------------
+// Watch.
+gulp.task('build.watch', done =>
+  runSequence('build',
+              'watch',
+              done));

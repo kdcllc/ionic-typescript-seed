@@ -12,8 +12,8 @@ WordPress is a popular Content Management System that now exposes its data thru 
 This template utilizes [WP-API](https://github.com/WP-API/WP-API) plugin.
 
 ## Development Tools
-* Visual Stuio Code
-* Visual Studio.NET 2015 Cordova
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio.NET 2015](https://www.visualstudio.com/) with [Visual Studio Tools for Apache Cordova](https://taco.visualstudio.com/)
 
 ## Machine Global NPM Libraries
 1. npm install -g gulp
@@ -29,8 +29,8 @@ In addition make sure that you have Python 2.5 installed on your machine.
 
 ## Project install
 1. npm install - node-module dependencies to be loaded (npm, bower and tsd)
-2. gulp cordova.platforms / cordova.plugins (installs all of the cordova platforms and plugins)
-3. gulp build (run typescript code to generate the code base for app.js)
+2. gulp cordova.platforms / cordova.plugins (installs all of the Apache Cordova platforms and plugins)
+3. gulp build (run typescript code to generate the code base for bundle.js, templates.js, index.html and styles)
 
 ##WWW deployment folder for the IONIC framework applications
 
@@ -50,6 +50,14 @@ In addition make sure that you have Python 2.5 installed on your machine.
 ### Build System of the project
 [Gulp]() is a powerful build system that uses stream thru code to prepare and execute the pipelines.
 
+|+-- tools
+|       +-- tasks
+|       +-- typings
+|               +-- tsd
+|       +-- utils
+|       congif.ts
+|       utils.ts
+      
 ```
 gulp --env prod build.index
 ```

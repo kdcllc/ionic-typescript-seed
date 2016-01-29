@@ -5,7 +5,7 @@
             <ion-item class="item-icon-right" ng-repeat="post in vm.posts track by $index" ui-sref="app.post({postId: post.id})" track>
                 <img ng-if="post.featured_image" ng-src="{{post.thumbnail_url}}" class="alignleft image-list-thumb"/>
                 <h2 ng-bind-html="post.title.rendered"></h2>
-                <p ng-if="post.excerpt.rendered" ng-bind-html="post.excerpt.rendered"></p>
+                <p ng-if="post.excerpt.rendered" ng-bind-html="post.excerpt.rendered | remove_share"></p>
                
                 <i class="icon ion-chevron-right icon-accessory"></i>
             </ion-item>
