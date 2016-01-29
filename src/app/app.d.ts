@@ -15,9 +15,11 @@
 /// <reference path="../app/tabs/tabs.module.ts" />
 /// <reference path="../app/services/log/log.module.ts" />
 
-/// <reference path="../app/filters/ext-link-filter.ts" />
 
 /// <reference path="../app/services/services.module.ts" />
+
+/// <reference path="../app/filters/ext-link-filter.ts" />
+/// <reference path="../app/filters/remove-share-filter.ts" />
 
 /// <reference path="../app/services/helper.ts" />
 /// <reference path="../app/services/mockplatformapi.ts" />

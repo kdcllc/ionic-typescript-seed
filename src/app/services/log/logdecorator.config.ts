@@ -44,17 +44,13 @@
             var ex;
             //ex.stack = exception.stack;
             
-            StackTrace.get().then((value: StackTrace.StackFrame[]) => {
+            // StackTrace.get().then((value: StackTrace.StackFrame[]) => {
+            //      ex = new Error(message + ' Trace: ' + formatStackTrace(value));
+            //     // Delegate to the default/base Angular behavior.
+            //     $delegate(ex, cause);
+            // });
 
-                ex = new Error(message + ' Trace: ' + formatStackTrace(value));
-                    
-                // Delegate to the default/base Angular behavior.
-                $delegate(ex, cause);
-            }
-
-
-            );
-
+        $delegate(exception, cause);
 
         }; //funtion(exeption, cause)
 
@@ -72,8 +68,8 @@
             var fileAndLineInfo: string = traceEntry.fileName + ' ' + traceEntry.columnNumber;
 
             // Update the line with the shorter 
-            var info = 'functionName: '  + functionName + "@" + fileAndLineInfo;
-            
+            var info = 'functionName: ' + functionName + "@" + fileAndLineInfo;
+
             result = result + info;
         });
 

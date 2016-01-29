@@ -54,9 +54,9 @@ gulp.task('build', done =>
                  "build.index",
         done));
 
-gulp.task('libs', done =>
+gulp.task('build.libs', done =>
     runSequence('clean.libs',
-                'libs'
+                'build.libs'
                 , done));
 
 gulp.task('tsd', done =>
