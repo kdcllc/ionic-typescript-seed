@@ -19,7 +19,7 @@
         , kdc.constants.posts
         , kdc.constants.settings
         , kdc.constants.tabs
-        , kdc.constants.filters
+        // kdc.constants.filters
         , kdc.constants.removeShareFilter
         , kdc.constants.externalLinkFilter
     ]);

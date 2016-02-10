@@ -58,6 +58,14 @@
         <splash height="300" src="resources\windows\splash\SplashScreen.scale-100.png" width="620" />
         <splash height="1920" src="resources\windows\splash\SplashScreen.scale-240.png" width="1152" />
     </platform>
+    <feature name="http://api.phonegap.com/1.0/battery" />
+    <feature name="http://api.phonegap.com/1.0/camera" />
+    <feature name="http://api.phonegap.com/1.0/contacts" />
+    <feature name="http://api.phonegap.com/1.0/file" />
+    <feature name="http://api.phonegap.com/1.0/geolocation" />
+    <feature name="http://api.phonegap.com/1.0/media" />
+    <feature name="http://api.phonegap.com/1.0/network" />
+    <feature name="http://api.phonegap.com/1.0/notification" />
     <engine name="windows" spec="latest" />
     <engine name="android" spec="latest" />
     <plugin name="com.ionic.keyboard" spec="~1.0.4" />
@@ -68,4 +76,8 @@
     <plugin name="cordova-plugin-device" spec="~1.1.0" />
     <plugin name="cordova-plugin-x-toast" spec="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git" />
     <plugin name="cordova-plugin-splashscreen" spec="~2.1.0" />
+    <preference name="xwalkVersion" value="15+" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+    <preference name="xwalkMode" value="embedded" />
+    <preference name="xwalkMultipleApk" value="true" />
 </widget>

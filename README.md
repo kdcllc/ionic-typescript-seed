@@ -13,6 +13,11 @@ This template utilizes [WP-API](https://github.com/WP-API/WP-API) plugin.
 
 ## Development Tools
 * [Visual Studio Code](https://code.visualstudio.com/)
+1. Debuggin with [Cordova Tools Extensionts](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools)
+```
+adb devices
+```
+
 * [Visual Studio.NET 2015](https://www.visualstudio.com/) with [Visual Studio Tools for Apache Cordova](https://taco.visualstudio.com/)
 
 ## Machine Global NPM Libraries
@@ -67,6 +72,15 @@ gulp --env prod build.index
 * [WP-API](https://github.com/WP-API/WP-API) plugin.
 * [WordPress custom types as end points](https://wordpress.org/plugins/rest-api-enabler/) project
 
+
+Package ID: 
+com.kdcllc.ionictemplate
+
+adb -s emulator-5554 shell "ps | grep com.kdcllc.ionictemplate
+
+adb -s emulator-5554 tcp:9222 localabstract:webview_devtools_remote_12039
+
+adb -s emulator-5554 forward tcp:9220 localabstract:webview_devtools_remote_12039
 ## Licence ##
 
 The MIT License

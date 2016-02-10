@@ -20,6 +20,7 @@ node_modules/
 
 ## TSD Sources
 tools/typings/tsd
+.vscode/typings
 
 ## Cordova Sources
 platforms/

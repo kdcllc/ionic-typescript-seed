@@ -74,6 +74,7 @@
     "cordova-plugin-device",
     "cordova-plugin-device@~1.1.0",
     "cordova-plugin-splashscreen@2.1.0",
-    "cordova-plugin-splashscreen@~2.1.0"
+    "cordova-plugin-splashscreen@~2.1.0",
+    "cordova-plugin-crosswalk-webview"
   ]
 }
