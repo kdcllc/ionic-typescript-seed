@@ -12,8 +12,8 @@
     <preference name="windows-target-version" value="8.1" />
     <preference name="windows-phone-target-version" value="8.1" />
     <preference name="android-minSdkVersion" value="19" />
-    <preference name="android-maxSdkVersion" value="22" />
-    <preference name="android-targetSdkVersion" value="22" />
+    <preference name="android-maxSdkVersion" value="23" />
+    <preference name="android-targetSdkVersion" value="23" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

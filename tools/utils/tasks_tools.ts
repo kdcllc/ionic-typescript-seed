@@ -37,6 +37,7 @@ export function runSequence(...sequence: any[]) {
 // Private.
 
 function registerTask(taskname: string, filename?: string, option: string = ''): void {
+    util.log('Registering task', chalk.yellow(taskname, option || ''));
   gulp.task(taskname, task(filename || taskname, option));
 }
 
